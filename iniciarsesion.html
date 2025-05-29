@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de sesion - DEV</title>
+    <link rel="stylesheet" href="./style/inciosesion.css" />
+  </head>
+  <body>    
+    <!-- Fondo banner-->
+    <!-- NAV -->
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <img src="./src/BSS blanco .svg" alt="Logo banco en azul" />
+        </div>
+        <div class="perfil">
+          <a id="MiCuenta" href="./index.html">Inicio </a>
+          <img id="icono-back" src="./src/icon Back.svg" alt="Icono de perfil">
+           </div>
+      </nav>
+    </header>
+    <section class="hero">
+      <!-- Inicio de sesion -->
+      <div id="divIncioSesion">
+        <div class="contenedor-blanco">
+          <form autocomplete="off" class="campoCss">
+            <h2>Iniciar sesión</h2>
+            <input
+              type="text"
+              id="loginID"
+              name="usuario"
+              placeholder="Numero de cuenta"           
+            />
+            <input
+              type="password"
+              id="passworeEnter"
+              name="contrasena"
+              placeholder="Contraseña"              
+            />
+            <button type="button" id="inicioSesion">Ingresar</button>
+            <button type="button" id="QuieroRegistrarme">
+              Quiero ser parte de BSS
+            </button>
+          </form>
+          <div id="IngresoAdmin"><a href="#">Ingreso como Administrados</a></div>
+          <div id="olvidoClave" ><a href="#">Olvido su clave</a></div>          
+        </div>
+      </div>
+      <!-- Registro usuario nuevo -->      
+      <div id="Registro" class="oculto" >
+        <div class="contenedor-blanco">
+          <form autocomplete="off" class="campoCss">
+            <h2>Nuevo Registro</h2>
+            <input
+              type="text"
+              id="regNombre"
+              name="usuario"
+              placeholder="Nombre"            
+            />
+            <input
+              type="text"
+              id="regApellido"
+              name="apellido"
+              placeholder="Apellido"             
+            />
+            <input
+              type="text"
+              id="regDireccion"
+              name="apellido"
+              placeholder="Dirección"              
+            />
+            <input
+              type="text"
+              id="regID"
+              name="identificacion"
+              placeholder="Identificación"            
+            />
+            <input
+              type="password"
+              id="passwore"
+              name="contraseña"
+              placeholder="Constraseña"             
+            />
+            <label for="TipoProducto" id="regTipoCuentaLevel">Selecciona tu producto</label>
+            <select id="regTipoCuenta" name="TipoProducto">
+              <option value="CtaCorriente">Cuenta Corriente</option>
+              <option value="CtaAhorros" selected>Cuenta Ahorros</option>
+            </select>
+            <button type="button" id="registro1">Registrame</button>
+            <button type="button" id="salirNuevoRegistro">Regresar</button>
+          </form>
+        </div>
+      </div>
+      <!-- este es el menu principal para cada cliente -->
+      <div id="MenuPrincipal" class="oculto">
+        <div class="contenedor-blanco">
+          <form class="campoCss">     
+            <div id="divTipoCuenta"></div>   
+            <div id="divFecha"></div>  
+            <div id="divSaldo"></div>      
+            <h2>
+              <strong><div id="contenedorMensajes"></div></strong> 
+              Bienvenido a tu cuenta BSS bank
+              <strong><br />¿Que quieres hacer hoy? </strong>
+            </h2>
+            <button type="button" id="btnConsignacionesMenu">Consignaciones</button>
+            <button type="button" id="btnRetirosMenu">Retiros</button>
+            <button type="button" id="btnMovimientos">
+              Ver mis movimientos
+            </button>
+            <button type="button" id="btnTransferirMenu">Transferir</button>
+            <button type="button" id="btnCerrarSesion">Cerrar sesion</button>
+          </form>
+          <div id="listaMovimientos"></div>
+          <br>
+        </div>
+      </div>
+      <!-- Comenzamos con las transacciones internas del banco -->
+      <!-- Consignar -->
+      <div id="Consignacion" class="oculto">
+        <div class="contenedor-blanco">
+          <form autocomplete="off" class="campoCss">
+            <h2>Consignaciones</h2>
+            <label for="MontoConsignacion">¿Cuanto quieres consignar?</label>
+            <input
+              type="text"
+              id="montoConsignar"
+              name="Consignacion"
+              required
+            />
+            <button type="button" id="btnConsignaciones">Consignar</button>
+            <button type="button" id="salirConsignacion">Regresar</button>
+            <br>
+            <br>
+            <br>
+            <strong><div id="confirmacionConsignacion"></div></strong> 
+          </form>          
+        </div>
+      </div>
+      <!-- Retirar -->
+      <div id="divRetiro" class="oculto">
+        <div class="contenedor-blanco">
+          <form autocomplete="off" class="campoCss">  
+            <h2>Retiros</h2>
+            <label for="MontoRetiro">¿Cuanto quieres retirar?</label>
+            <input type="text" id="montoRetirar" name="Retiro" required />
+            <button type="button" id="btnMostrarRetirar">Retirar</button>
+            <button type="button" id="salirRetiro">Regresar</button>
+            <br>
+            <br>
+            <br>
+            <strong><div id="confirmacionRetiro"></div></strong>
+          </form>          
+        </div>
+      </div>
+      <!-- Transferir -->
+      <div id="divTransferir" class="oculto">
+        <div class="contenedor-blanco">
+          <form autocomplete="off" class="campoCss">
+            <h2>Transferencias</h2>
+            <label for="CuentaDestino">¿A quien le quieres transferir?</label>
+            <input
+              type="text"
+              id="cuentaDestino"
+              name="CuentaDestino"
+              placeholder="Cuenta destino"
+              required
+            />
+            <label for="MontoTransferencia">¿Cuanto quieres transferir?</label>
+            <input
+              type="text"
+              id="montoTransferir"
+              name="Transferencia"
+              required
+            />
+            <button type="button" id="btnTransferir">Transferir dinero</button>
+            <button type="button" id="salirTransferencia">Regresar</button>
+            <strong><div id="confirmacionTransferencia"></div></strong>
+          </form>
+           </div>
+      </div>
+      <!-- Inicio de sesion Admin -->
+      <div id="divIncioSesionAdmin" class="oculto">
+        <div class="contenedor-blanco">
+          <form autocomplete="off" class="campoCss">
+            <h2>Inicio Administrador</h2>
+            <input
+              type="text"
+              id="userAdmin"
+              name="usuario"
+              placeholder="Usuario"           
+            />
+            <input
+              type="password"
+              id="passAdmin"
+              name="contrasena"
+              placeholder="Contraseña"              
+            />
+            <button type="button" id="inicioSesionAdmin">Ingresar</button>
+            <button type="button" id="guardarAdmin">guardar</button>
+          </form>
+          <div id="IngresoAdminCliente"><a href="#">Ingreso como Cliente</a></div>       
+        </div>
+      </div>
+      <div class="oculto" id="ConsolAdmin">
+      <section class="vistaAdmin" class="oculto" id="ConsolAdmin">
+      <!-- Vista admin -->
+        
+      <div class="contenedor-funciones">
+      <div class="BSSadmin">
+        <img src="./src/BSS admin-19.svg" alt="Logo BSS azul">
+      </div>
+      <div class="listaFunciones">
+        <ul>
+            <li><a href="">Ver cuentas</a></li>
+            <li><a href="">Crear admin</a></li>
+            <li><a href="">Cerrar sesion</a></li>
+        </ul>
+         </div>
+      </div>
+            <div class="contenedor-info">
+              </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+      <!-- Admin -->
+      <!-- <div id="vistaAdministrador" class="oculto">
+        <div class="contenedor-blanco"> -->
+          <!-- <form class="campoCss">     
+            <div id="divTipoCuenta"></div>   
+            <div id="divFecha"></div>  
+            <div id="divSaldo"></div>      
+            <h2>
+              <strong><div id="contenedorMensajes"></div></strong> 
+              Bienvenido a tu cuenta BSS bank
+              <strong><br />¿Que quieres hacer hoy? </strong>
+            </h2>
+            <button type="button" id="btnConsignacionesMenu">Consignaciones</button>
+            <button type="button" id="btnRetirosMenu">Retiros</button>
+            <button type="button" id="btnMovimientos">
+              Ver mis movimientos
+            </button>
+            <button type="button" id="btnTransferirMenu">Transferir</button>
+            <button type="button" id="btnCerrarSesion">Cerrar sesion</button>
+          </form> -->
+       <!--    <button type="button" id="mostrarCuentas">Mostrar cuentas</button>
+          <div id="listaClientes"></div>
+          <div id="ListaMovimientos">
+          </div>
+          <br>
+        </div>
+      </div> -->
+
+
+
+
+      
+      <!-- modal Bienvenida -->
+      <div id="popUpBienvenido" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <p id="popupMessage"></p>
+  </div>
+</div>
+<!-- Modal olvido clave -->
+<div id="modalOlvidoClave" style="display:none;"class="Modal1">
+  <div class="modal-content-OlvidoClave">
+  <span id="closeBtn">&times;</span>
+  <div id="MensajeOlvidoClave"></div>
+</div>
+</div>
+    </section>
+    <script type="module" src="./main.js"></script>
+  </body>
+</ht

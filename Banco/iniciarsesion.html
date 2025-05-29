@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de sesion</title>
+    <link rel="stylesheet" href="./style/inciosesion.css" />
+  </head>
+  <body>
+    <!-- Fondo banner-->
+    <!-- NAV -->
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <img src="./src/BSS blanco .svg" alt="Logo banco en azul" />
+        </div>
+        <div class="perfil">
+          <a id="MiCuenta" href="./index.html">Regresar </a>
+          <img
+            id="icono-back"
+            src="./src/icon Back.svg"
+            alt="Icono de perfil"
+          />
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <!-- Inicio de sesion -->
+      <div id="incioSesion">
+        <div class="contenedor-blanco">
+          <form class="campoCss">
+            <h2>Iniciar sesión</h2>
+            <input
+              type="text"
+              id="LoginID"
+              name="usuario"
+              placeholder="Usuario"
+              required
+            />
+            <input
+              type="password"
+              id="passworeEnter"
+              name="contrasena"
+              placeholder="Contraseña"
+              required
+            />
+
+            <button type="submit" id="inicioSesion">Ingresar</button>
+            <button type="submit" id="QuieroRegistrarme">
+              Quiero ser parte de BSS
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Registro usuario nuevo -->
+      <div id="Registro" class="oculto">
+        <div class="contenedor-blanco">
+          <form class="campoCss">
+            <h2>Nuevo Registro</h2>
+            <input
+              type="text"
+              id="regNombre"
+              name="usuario"
+              placeholder="Nombre"
+              required
+            />
+            <input
+              type="text"
+              id="regApellido"
+              name="apellido"
+              placeholder="Apellido"
+              required
+            />
+            <input
+              type="text"
+              id="regDireccion"
+              name="apellido"
+              placeholder="Dirección"
+              required
+            />
+            <input
+              type="text"
+              id="regID"
+              name="identificacion"
+              placeholder="Identificación"
+              required
+            />
+            <input
+              type="text"
+              id="regUsuario"
+              name="usuario"
+              placeholder="Usuario"
+              required
+            />
+            <input
+              type="text"
+              id="regContraseña"
+              name="contraseña"
+              placeholder="Constraseña"
+              required
+            />
+
+            <label for="TipoProducto" id="TipoDeProducto">Selecciona tu producto</label>
+            <select id="regTipoCuenta" name="TipoProducto">
+              <option value="CtaCorriente">Cuenta Corriente</option>
+              <option value="CtaAhorros" selected>Cuenta Ahorros</option>
+            </select>
+
+            <button type="submit" id="registro1">Registrame</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- este es el menu principal para cada cliente -->
+      <div id="MenuPrincipal" class="oculto">
+        <div class="contenedor-blanco">
+          <form class="campoCss">
+            <h2>
+              Bienvenido a tu cuenta BSS bank
+              <strong><br />¿Que quieres hacer hoy? </strong>
+            </h2>
+            <button type="submit" id="btnConsignaciones">Consignaciones</button>
+            <button type="submit" id="btnRetiros">Retiros</button>
+            <button type="submit" id="btnMovimientos">
+              Ver mis movimientos
+            </button>
+            <button type="submit" id="btnTransferir">Transferir</button>
+            <button type="submit" id="btnCerrarSesion">Cerrar sesion</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Comenzamos con las transacciones internas del banco -->
+
+      <!-- Consignar -->
+      <div id="Consignacion" class="oculto">
+        <div class="contenedor-blanco">
+          <form class="campoCss">
+            <h2>Consignaciones</h2>
+            <label for="MontoConsignacion">¿Cuanto quieres consignar?</label>
+            <input
+              type="text"
+              id="montoConsignar"
+              name="Consignacion"
+              required
+            />
+
+            <button type="submit" id="btnMostrarConsignar">Consignar</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Retirar -->
+      <div id="Retiro" class="oculto">
+        <div class="contenedor-blanco">
+          <form class="campoCss">
+            <h2>Retiros</h2>
+            <label for="MontoRetiro">¿Cuanto quieres retirar?</label>
+            <input type="text" id="montoRetirar" name="Retiro" required />
+
+            <button type="submit" id="btnMostrarRetirar">Retirar</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Ver movimientos -->
+      <div id="VerMovimientos" class="oculto">
+        <div class="contenedor-blanco">
+          <form class="campoCss">
+            <h2>Tus movimientos</h2>
+            <label for="Movimientos">Estos son tus movimientos</label>
+
+            <button type="submit" id="btnVerMovimientos">Regresar</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Transferir -->
+      <div id="Transferir" class="oculto">
+        <div class="contenedor-blanco">
+          <form class="campoCss">
+            <h2>Transferencias</h2>
+            <label for="CuentaDestino">¿A quien le quieres transferir?</label>
+            <input
+              type="text"
+              id="cuentaDestino"
+              name="CuentaDestino"
+              placeholder="Cuenta destino"
+              required
+            />
+
+            <label for="MontoTransferencia">¿Cuanto quieres transferir?</label>
+            <input
+              type="text"
+              id="montoTransferir"
+              name="Transferencia"
+              required
+            />
+
+            <button type="submit" id="btnTransferir">Transferir dinero</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

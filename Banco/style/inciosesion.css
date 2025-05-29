@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url(../src/font/Outfit-Regular.ttf) format("trutype");
+}
+
+@font-face {
+  font-family: "Outfit-bold";
+  src: url(../src/font/Outfit-ExtraBold.ttf) format("trutype");
+}
+
+body {
+  font-family: "Outfit";
+  background: linear-gradient(to right, #004c57, #00686e);
+  color: #111;
+}
+
+/* Header */
+
+.header {
+  padding: 0px 30px;
+  max-width: 1920px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.perfil {
+  display: flex;
+  align-items: center;
+}
+
+#MiCuenta {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+}
+#MiCuenta:hover {
+  font-size: 15px;
+  padding: 10px;
+  transition: 0.4s;
+}
+#icono-back {
+  width: 30px;
+  padding: auto;
+}
+
+.logo {
+  width: 150px;
+}
+
+/* Inicio de sesion usuario registrado */
+
+.hero {
+  display: flex;
+  justify-content: center;
+}
+.contenedor-blanco {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  width: 1000px;
+  justify-content: center;
+}
+
+.campoCss {
+  /* padding: arriba  derecha  abajo  izquierda; */
+  padding: 100px 250px 100px 250px;
+  justify-content: center;
+}
+
+.campoCss h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.campoCss label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.campoCss input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.campoCss button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00686e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.campoCss button:hover {
+  background-color: #45a049;
+  transition: 0.6s;
+}
+
+.campoCss #QuieroRegistrarme {
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  margin-top: 12px;
+}
+
+.oculto {
+  display: none;
+}
+
+/* esto es de registro nuevo */
+
+#Registro .campoCss #TipoDeProducto {
+justify-content: center;
+}
+
+#regTipoCuenta {
+  padding: 5px;
+  font-family:"Outfit" ;
+  background-color: #004c57;
+  color: white;
+  border-radius: 50px;
+
+}
+
+#registro1 {
+  margin-top: 30px;
+}
+
+/* esto es para inicio de sesion */
+
+#inicioSesion {
+  text-align: center;
+}
+
+
+/* esto es para el menu principal */
+
+#MenuPrincipal .contenedor-blanco .campoCss button {
+  margin: 12px;
+  width: 200px;
+  justify-content: center;
+  
+}
+#MenuPrincipal .contenedor-blanco .campoCss  {
+ align-items: center;  
+ position: relative;
+ z-index: 3;
+}
+#MenuPrincipal .contenedor-blanco .campoCss #BtnCerrarSesion {
+ align-items: center;  
+ position: absolute;
+ z-index: 5;
+ top: 300px;
+ right: 400px;
+}
+
+
+

@@ -1,0 +1,314 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url(../src/font/Outfit-Regular.ttf) format("trutype");
+}
+
+@font-face {
+  font-family: "Outfit-bold";
+  src: url(../src/font/Outfit-ExtraBold.ttf) format("trutype");
+}
+
+body {
+  font-family: "Outfit";
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* Utils */
+.container {
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.containerBlanco {
+  background: #ffffff;
+  border-radius: 0% 0% 0% 0%;
+  padding-bottom: 20vh;
+}
+
+.bannerAzul {
+  background: linear-gradient(to right, #004c57, #00686e);
+  border-radius: 0px 0px 60px 60px;
+  height: 80vh;
+}
+
+.header {
+  padding: 0px 30px;
+  max-width: 1920px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.nav a {
+  padding-left: 15px;
+}
+.perfil {
+  display: flex;
+  align-items: center;
+}
+
+#MiCuenta {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  transition: 0.4s;
+}
+#MiCuenta:hover {
+  font-size: 15px;
+  padding: 10px;
+}
+#icono-perfil {
+  width: 30px;
+  padding: auto;
+}
+
+.logo {
+  width: 150px;
+}
+
+/* Hero */
+
+.bannerInicial {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+#contenedor-texto {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 750px;
+  height: 150px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+  border-radius: 40px;
+  position: absolute;
+  z-index: 2;
+  right: 50%;
+  top: 380px;
+  transform: translateX(50%);
+}
+
+.contenedor-info {
+        display: flex;
+        flex-direction: column; /* o row si quieres horizontal */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+.quienesSomos {
+  width: 900px;
+  color: white;
+}
+.quienesSomos h1 {
+    margin-top: 10px;
+  font-size: 60px;
+}
+.quienesSomos p {
+  font-size: 15px;
+}
+
+.mision-vision {
+  display: flex;
+  width: 800px;
+  margin-top: 90px;
+  margin-bottom: 100px;
+}
+.mision-vision h1 {
+  font-size: 30px;
+  margin-bottom: 60px;
+}
+.mision-vision p {
+  font-size: 15px;
+}
+
+.mision {
+  margin-right: 100px;
+}
+
+.btn {
+  background-color: #00b8a9;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  transition: all ease-in-out 0.5s;
+}
+.btn:hover {
+  /* padding: 15px 25px 15px 25px; */
+  /* font-size: 18px; */
+  transform: scale(1.05);
+  background-color: #038fa5;
+}
+
+/* CTA */
+
+.contenedorTarjeta {
+  position: relative;
+}
+.fondoblancoCta {
+  /* height: 300px; */
+  padding-bottom: 90px;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cta {
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  /* margin: 0 auto; */
+  position: absolute;
+  z-index: 2;
+  top: -20px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+#tarjeta-cta {
+  width: 400px;
+}
+
+.copyCTA {
+  width: 300px;
+}
+
+.copyCTA h3 {
+  line-height: 1;
+}
+
+.copyCTA h3 p {
+  font-size: 25px;
+  padding-top: 1px;
+}
+
+.copyCTA p {
+  font-size: 28px;
+}
+
+.cta .btn {
+  background-color: #00b8a9;
+  font-size: 15px;
+  padding: 10px 15px 10px 15px;
+  transition: all ease-in-out 0.25s;
+}
+
+.cta .btn:hover {
+  /* padding: 15px 19px 15px 19px; */
+  transform: scale(1.05);
+  background-color: #038fa5;
+}
+
+.fondoAzulCta {
+  background-color: #004c57;
+  border-radius: 60px;
+  width: 100%;
+  max-width: 850px;
+  height: 250px;
+  /* box-shadow: desplazamientoX desplazamientoY desenfoque extensión color; */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Legal Section */
+.legal {
+  padding: 30px 20px;
+  text-align: center;
+  align-content: center;
+}
+
+.legal p {
+  font-size: 10px;
+}
+
+.logos-legal {
+  display: flex;
+  justify-content: center;
+}
+
+.logos-legal img {
+  width: 120px;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(to right, #004c57, #00686e);
+  color: white;
+  padding: 40px 20px;
+  justify-content: center;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1000px;
+}
+
+.footer-columns div {
+  padding: 0px 50px 0px 50px;
+}
+
+.footer-columns h5 {
+  margin-bottom: 10px;
+}
+
+.footer-columns ul {
+  list-style: none;
+  font-size: 10px;
+}
+
+.footer-columns li {
+  margin-bottom: 5px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  /* Hero */
+
+  .bannerAzul {
+    height: 100vh;
+  }
+
+  .hero-img {
+    width: 300px;
+  }
+  #contenedor-texto {
+    width: 95%;
+    top: 72%;
+  }
+
+  .bannerInicial {
+    flex-direction: column;
+  }
+
+  .fondoAzulCta {
+    height: 370px;
+  }
+  .cta {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+}

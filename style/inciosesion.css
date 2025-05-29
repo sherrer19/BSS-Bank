@@ -1,0 +1,432 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url(../src/font/Outfit-Regular.ttf) format("trutype");
+}
+
+@font-face {
+  font-family: "Outfit-bold";
+  src: url(../src/font/Outfit-ExtraBold.ttf) format("trutype");
+}
+
+body {
+  font-family: "Outfit";
+  background: linear-gradient(to right, #004c57, #00686e);
+  color: #111;
+}
+
+/* Header */
+
+.header {
+  padding: 0px 30px;
+  max-width: 1920px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.perfil {
+  display: flex;
+  align-items: center;
+}
+
+#MiCuenta {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+}
+#MiCuenta:hover {
+  font-size: 15px;
+  padding: 10px;
+  transition: 0.4s;
+}
+#icono-back {
+  width: 30px;
+  padding: auto;
+}
+
+.logo {
+  width: 150px;
+}
+
+/* Inicio de sesion usuario registrado */
+
+.hero {
+  display: flex;
+  justify-content: center;
+}
+.contenedor-blanco {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  width: 1000px;
+  justify-content: center;
+}
+
+.campoCss {
+  /* padding: arriba  derecha  abajo  izquierda; */
+  padding: 100px 250px 100px 250px;
+  justify-content: center;
+}
+
+.campoCss h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.campoCss label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.campoCss input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.campoCss button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00686e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.campoCss button:hover {
+  background-color: #45a049;
+  transition: 0.6s;
+}
+
+.campoCss #QuieroRegistrarme {
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  margin-top: 12px;
+}
+
+.oculto {
+  display: none;
+}
+
+/* esto es de registro nuevo */
+
+#Registro .campoCss #TipoDeProducto {
+justify-content: center;
+}
+
+#regTipoCuenta {
+  padding: 9px;
+  background-color: #00686e;
+  color: white;
+  border-radius: 50px;
+}
+
+#registro1, #btnMostrarRetirar, #btnConsignaciones,#btnTransferir{
+  margin: 20px 0 ;
+  padding: 10px;
+}
+/* esto es para inicio de sesion */
+
+#inicioSesion {
+  text-align: center;
+}
+/* esto es para el menu principal */
+#MenuPrincipal .contenedor-blanco .campoCss button {
+  margin: 12px;
+  width: 200px;
+  justify-content: center;
+  
+}
+#MenuPrincipal .contenedor-blanco .campoCss  {
+ align-items: center;  
+ position: relative;
+ z-index: 3;
+}
+
+#divSaldo{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  position: relative;
+  left: -210px;
+  top: -74px;
+  color: black;
+}
+#divFecha{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  position: relative;
+  left: 500px;
+  top: -110px;
+  color: black;
+}
+#divTipoCuenta{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  position: relative;
+  left: -210px;
+  top: -70px;
+  color: black;
+}
+
+#listaMovimientos{
+     width: 613px;
+    height: 389px;
+    border: 1px solid #ffffff;
+    padding: 16px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+#listaMovimientos table {
+  margin: 0;
+  text-align: center;
+  align-self: center;
+  
+  
+}
+#listaMovimientos th,#listaMovimientos td {
+  padding: 8px 20px;   
+  font-size: 16px;      
+  border: 1px solid #ccc; 
+  
+  
+}
+#listaMovimientos h4 {
+  padding: 12px 20px;   
+  font-size: 16px;      
+  align-self: center;
+  font-size: 20px;
+ 
+  
+}
+#btnCerrarSesion{
+  position: absolute;
+  top: 438px;
+  left: 362px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+  background-color:  #00686e;
+  color: white;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 20.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#popupMessage {
+  white-space: pre-line;
+}
+#IngresoAdmin a{
+  color: #080808;
+  text-decoration: none;
+  position: relative;
+  top: -66px;
+  left: 539px;
+  }
+  #IngresoAdmin a:hover {
+  background-color: #00686e;
+  transition: 0.6s;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+}
+#IngresoAdminCliente a{
+  color: #080808;
+  text-decoration: none;
+  position: relative;
+  top: -66px;
+  left: 595px;
+  }
+  #IngresoAdminCliente a:hover {
+  background-color: #00686e;
+  transition: 0.6s;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+}
+#olvidoClave a{
+  color: #080808;
+  text-decoration: none;
+  position: relative;
+  top: -87px;
+  left: 255px;
+  }
+  #olvidoClave a:hover {
+  background-color: #00686e;
+  transition: 0.6s;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+}
+.Modal1 {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content-OlvidoClave {
+  background-color:  #00686e;
+  color: white;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 20.2);
+}
+
+#closeBtn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#MensajeOlvidoClave {
+  white-space: pre-line;
+  
+}
+#olvidoClave a{
+  color: #080808;
+  text-decoration: none;
+  position: relative;
+  top: -87px;
+  left: 255px;
+  }
+  #olvidoClave a:hover {
+  background-color: #00686e;
+  transition: 0.6s;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+}
+
+#listaClientes{
+     width: 1000px;
+    height: 389px;
+    border: 1px solid #ffffff;
+    padding: 16px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+#listaClientes table {
+  margin: 0;
+  text-align: center;
+  align-self: center;
+  
+  
+}
+#listaClientes th,#listaClientes td {
+  padding: 8px 20px;   
+  font-size: 13px;      
+  border: 1px solid #ccc; 
+ 
+}
+#listaClientes h4 {
+  padding: 12px 20px;   
+  font-size: 16px;      
+  align-self: center;
+  font-size: 20px;
+  
+}
+/* Contenedores   */
+
+.vistaAdmin {
+  display: flex;
+}
+.contenedor-funciones {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  width: 300px;
+  height: 1000px;
+  justify-content: center;
+  margin-right: 40px;
+  margin-left: 60px;
+}
+
+.listaFunciones {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+.listaFunciones ul a{
+text-decoration: none;
+color: black;
+}
+.listaFunciones ul a:hover{
+color: rgb(93, 152, 239);
+border: 1px;
+border-radius: 50px;
+font-size: 20px;
+transition: 0.5s;
+}
+
+
+.listaFunciones ul li{
+  margin-top: 20px;
+  list-style: none;
+}
+.contenedor-info {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  width: 1000px;
+  justify-content: center;
+  margin-right: 60px;
+}
