@@ -45,16 +45,18 @@ const IngresoAdminCliente = document.getElementById("IngresoAdminCliente")
 const inicioSesionAdmin = document.getElementById("inicioSesionAdmin")
 const passAdmin = document.getElementById("passAdmin")
 const userAdmin = document.getElementById("userAdmin")
-const vistaAdministrador = document.getElementById("vistaAdministrador")
-/* const mostrarCuentas = document.getElementById("mostrarCuentas") */
+const vistaAdministrador = document.getElementById("contenedor-info")
+const mostrarCuentas = document.getElementById("mostrarCuentas")
 
 const Inicio = new cliente()
 const cuenta = new Cuenta()
 const admin = new administrador()
-/* mostrarCuentas.addEventListener("click", ()=>{
+
+
+mostrarCuentas.addEventListener("click", ()=>{
 admin.mostrarClientes()
 })
-   */
+  
 
 inicioSesionAdmin.addEventListener("click",()=>{
   admin.inicioSesionAdmin(userAdmin, passAdmin)
@@ -202,8 +204,9 @@ btnVerMovimientos.addEventListener("click", () => {
     listaMovimientos.innerHTML = "<p>📭 No hay movimientos registrados.</p>"
     return
   }
-  listaMovimientos.innerHTML = `<h4>📋 Movimientos de la cuenta ${cuenta.numero}</h4>    
+  listaMovimientos.innerHTML = `
     <table border="1" cellspacing="3" cellpadding="9">
+    <caption>Movimientos de la cuenta ${cuenta.numero}</caption> 
       <thead>
         <tr>
           <th>Fecha</th>
