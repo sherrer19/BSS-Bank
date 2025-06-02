@@ -312,3 +312,19 @@ body {
     margin: 0 auto;
   }
 }
+#whatsapp-flotante {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#whatsapp-flotante img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.8s;
+}
+#whatsapp-flotante img:hover {
+  transform: scale(1.3);
+}
