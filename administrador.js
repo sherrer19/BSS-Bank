@@ -125,26 +125,38 @@ boton.addEventListener("click", eliminarCliente)
 }
     //Funcion editar clientes
 function editarCliente(event) {
-  const index = event.target.dataset.index
-  const clientes = JSON.parse(localStorage.getItem("clientes")) || []
-  const cliente = clientes[index]
-  const nuevoNombre = prompt("Editar Nombre:", cliente.nombre)
-    if (nuevoNombre === null) return
-        const nuevoApellido = prompt("Editar Apellido:", cliente.apellido)
-        if (nuevoApellido === null) return
-           const nuevaDireccion = prompt("Editar Dirección:", cliente.direccion)
-            if (nuevaDireccion === null) return   
-            const nuevoDocumento = prompt("Editar Documento:", cliente.identificacion)
-              if (nuevoNombre === null) return         
-  cliente.nombre = nuevoNombre
-  cliente.apellido = nuevoApellido
-  cliente.direccion = nuevaDireccion
-  cliente.identificacion= nuevoDocumento
-  clientes[index] = cliente
-  localStorage.setItem("clientes", JSON.stringify(clientes))
-  alert("Se Edito el registro con exito")
-  mostrarClientes()
+  const index = event.target.dataset.index;
+  const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+  const cliente = clientes[index];
+
+  // Rellenar los campos del modal
+  document.getElementById("indexEditar").value = index;
+  document.getElementById("nombreEditar").value = cliente.nombre;
+  document.getElementById("apellidoEditar").value = cliente.apellido;
+  document.getElementById("direccionEditar").value = cliente.direccion;
+  document.getElementById("documentoEditar").value = cliente.identificacion;
+
+  // Mostrar el modal
+  document.getElementById("modalEditarCliente").style.display = "block";
 }
+document.getElementById("formEditarCliente").onsubmit = (e) => {
+  e.preventDefault();
+
+  const index = document.getElementById("indexEditar").value;
+  const clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+
+  clientes[index].nombre = document.getElementById("nombreEditar").value.trim();
+  clientes[index].apellido = document.getElementById("apellidoEditar").value.trim();
+  clientes[index].direccion = document.getElementById("direccionEditar").value.trim();
+  clientes[index].identificacion = document.getElementById("documentoEditar").value.trim();
+
+  localStorage.setItem("clientes", JSON.stringify(clientes));
+
+  alert("✅ Cliente editado con éxito");
+  document.getElementById("modalEditarCliente").style.display = "none";
+
+  mostrarClientes();
+};
 //funcion eliminar clientes 
 function eliminarCliente(event) {
   const index = event.target.dataset.index

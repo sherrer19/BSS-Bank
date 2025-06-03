@@ -1,6 +1,7 @@
 import { cliente } from "./cliente.js"
 import { Cuenta } from "./cuenta.js"
 import{administrador}from "./administrador.js"
+import { CuentaAhorros } from './cuentaAhorros.js'
 const nombre = document.getElementById("regNombre")
 const apellido = document.getElementById("regApellido")
 const direccion = document.getElementById("regDireccion")
@@ -47,7 +48,7 @@ const passAdmin = document.getElementById("passAdmin")
 const userAdmin = document.getElementById("userAdmin")
 const vistaAdministrador = document.getElementById("contenedor-info")
 const mostrarCuentas = document.getElementById("mostrarCuentas")
-
+const guardarAdminBtn = document.getElementById("guardarAdmin")
 const Inicio = new cliente()
 const cuenta = new Cuenta()
 const admin = new administrador()
@@ -61,7 +62,6 @@ admin.mostrarClientes()
 inicioSesionAdmin.addEventListener("click",()=>{
   admin.inicioSesionAdmin(userAdmin, passAdmin)
 })
-const guardarAdminBtn = document.getElementById("guardarAdmin")
 
 //Eventos Regresar
 IngresoAdmin.addEventListener("click", () =>{
@@ -240,7 +240,31 @@ btnTransferir.addEventListener("click", () => {
   }
   const cuentaOrigen = Inicio.cuentaActiva
   const cuentas = JSON.parse(localStorage.getItem("cuentas")) || []
-const cuentaDestinoObj = cuentas.find(c => c.numero === numeroDestino)
+let cuentaDestinoObj = cuentas.find(c => c.numero === numeroDestino)
+
+if (cuentaDestinoObj) {
+  // Intentar cargar como CuentaAhorros desde localStorage
+  cuentaDestinoObj = CuentaAhorros.cargarDesdeLocalStorage(numeroDestino)
+
+  // Si no es CuentaAhorros, cargamos como Cuenta (opcional si manejas otros tipos)
+  if (!cuentaDestinoObj) {
+    const cuentaData = JSON.parse(localStorage.getItem(`cuenta_${numeroDestino}`))
+    if (cuentaData) {
+      cuentaDestinoObj = new Cuenta(
+        cuentaData.numero,
+        cuentaData.saldo,
+        cuentaData.movimientos
+      )
+    }
+  }
+}
+if (!cuentaDestinoObj) {
+  alert("⚠️ La cuenta destino no existe")
+  cuentaDestino.value = ""
+  montoTransferir.value = ""
+  listaMovimientos.innerHTML = ""
+  return
+}
   if (!cuentaDestinoObj) {
     alert("⚠️ La cuenta destino no existe")
       cuentaDestino.value=""
@@ -296,14 +320,11 @@ if (guardarAdminBtn) {
       alert("⚠️ Debes ingresar usuario y contraseña.")
       return;
     }
-
     const adminData = {
       usuario,
       clave
     };
-
     localStorage.setItem("admin", JSON.stringify(adminData));
-
     alert("✅ Usuario administrador guardado correctamente");
     document.getElementById("userAdmin").value = "";
     document.getElementById("passAdmin").value = "";

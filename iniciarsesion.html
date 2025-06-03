@@ -198,7 +198,7 @@
               placeholder="Contraseña"              
             />
             <button type="button" id="inicioSesionAdmin">Ingresar</button>
-            <button type="button" id="guardarAdmin">guardar</button>
+           <!--  <button type="button" id="guardarAdmin">guardar</button> -->
           </form>
           <div id="IngresoAdminCliente"><a href="#">Ingreso como Cliente</a></div>       
         </div>
@@ -228,45 +228,7 @@
         </div>
       </div>
     </section>
-    
-
-
-
-
-
-      <!-- Admin -->
-      <!-- <div id="vistaAdministrador" class="oculto">
-        <div class="contenedor-blanco"> -->
-          <!-- <form class="campoCss">     
-            <div id="divTipoCuenta"></div>   
-            <div id="divFecha"></div>  
-            <div id="divSaldo"></div>      
-            <h2>
-              <strong><div id="contenedorMensajes"></div></strong> 
-              Bienvenido a tu cuenta BSS bank
-              <strong><br />¿Que quieres hacer hoy? </strong>
-            </h2>
-            <button type="button" id="btnConsignacionesMenu">Consignaciones</button>
-            <button type="button" id="btnRetirosMenu">Retiros</button>
-            <button type="button" id="btnMovimientos">
-              Ver mis movimientos
-            </button>
-            <button type="button" id="btnTransferirMenu">Transferir</button>
-            <button type="button" id="btnCerrarSesion">Cerrar sesion</button>
-          </form> -->
-       <!--    <button type="button" id="mostrarCuentas">Mostrar cuentas</button>
-          <div id="listaClientes"></div>
-          <div id="ListaMovimientos">
-          </div>
-          <br>
-        </div>
-      </div> -->
-
-
-
-
-      
-      <!-- modal Bienvenida -->
+          <!-- modal Bienvenida -->
       <div id="popUpBienvenido" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
@@ -281,6 +243,34 @@
 </div>
 </div>
     </section>
+    <div id="modalEditarCliente" class="modal">
+  <div id="modal-edicion" class="modal-content">
+    <span id="cerrarModalEditar" class="close">&times;</span>
+    <h2>Editar Cliente</h2>
+    <br>
+    <form autocomplete="off" id="formEditarCliente">
+      <input type="hidden" id="indexEditar" />
+      <label for="nombreEditar">Nombre:</label>
+      <br>
+      <input type="text" id="nombreEditar"  />
+      <br>
+      <label for="apellidoEditar">Apellido:</label>
+      <br>
+      <input type="text" id="apellidoEditar"  />
+      <br>
+      <label for="direccionEditar">Dirección:</label>
+      <br>
+      <input type="text" id="direccionEditar"  />
+      <br>
+      <label for="documentoEditar">Documento:</label>
+      <br>
+      <input type="text" id="documentoEditar" />
+      <br>
+      <br>
+      <button type="submit">Guardar Cambios</button>
+    </form>
+  </div>
+</div>
     <script type="module" src="./main.js"></script>
       <div id="whatsapp-flotante"></div>
   <script src="./logoWhatsapp.js"></script>
