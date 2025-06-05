@@ -46,23 +46,36 @@ const IngresoAdminCliente = document.getElementById("IngresoAdminCliente")
 const inicioSesionAdmin = document.getElementById("inicioSesionAdmin")
 const passAdmin = document.getElementById("passAdmin")
 const userAdmin = document.getElementById("userAdmin")
-const vistaAdministrador = document.getElementById("contenedor-info")
 const mostrarCuentas = document.getElementById("mostrarCuentas")
-const guardarAdminBtn = document.getElementById("guardarAdmin")
+ const guardarAdminBtn = document.getElementById("guardarAdminBtn") //guardador real
+ const modalCrearAdmin = document.getElementById("modalCrearAdmin")
+ const crearAdminBtn = document.getElementById("crearAdmin")
+ const cerrarModalAdmin = document.getElementById("cerrarModalAdmin")
+ const userAdminNueva = document.getElementById("userAdminNuevo")//user real
+ const claveAdminNueva = document.getElementById("passAdminNuevo")//clave real
+ const listaClientes=document.getElementById("listaClientes")
+/*  const guardarAdminprueba  = document.getElementById("guardarAdmin")//retirar
+ const usuaroprueba = document.getElementById("userAdmin")//retirar
+ const claveprueba = document.getElementById("passAdmin")//retirar */
 const Inicio = new cliente()
-const cuenta = new Cuenta()
 const admin = new administrador()
-
-
+crearAdminBtn.addEventListener("click",()=>{
+  listaClientes.style.display = "none"
+   modalCrearAdmin.style.display = "block"   
+})
+cerrarModalAdmin.addEventListener("click",()=>{
+   modalCrearAdmin.style.display = "none"
+   listaClientes.style.display = "block"
+})  
+  guardarAdminBtn.addEventListener("click",()=>{
+    admin.guardarAdmin(userAdminNueva,claveAdminNueva)
+  })
 mostrarCuentas.addEventListener("click", ()=>{
 admin.mostrarClientes()
 })
-  
-
 inicioSesionAdmin.addEventListener("click",()=>{
   admin.inicioSesionAdmin(userAdmin, passAdmin)
 })
-
 //Eventos Regresar
 IngresoAdmin.addEventListener("click", () =>{
   divInicioSecion.style.display = "none"
@@ -122,8 +135,6 @@ btnTransferirMenu.addEventListener("click", ()=> {
   divTransferencia.style.display = "block"
 })
 //Evento Olvido contraseña
-
-
 olvidoClaveCliente.addEventListener("click", () => {
   cliente.mostrarFormularioRecuperacion()
 })
@@ -243,11 +254,8 @@ btnTransferir.addEventListener("click", () => {
 let cuentaDestinoObj = cuentas.find(c => c.numero === numeroDestino)
 
 if (cuentaDestinoObj) {
-  // Intentar cargar como CuentaAhorros desde localStorage
   cuentaDestinoObj = CuentaAhorros.cargarDesdeLocalStorage(numeroDestino)
-
-  // Si no es CuentaAhorros, cargamos como Cuenta (opcional si manejas otros tipos)
-  if (!cuentaDestinoObj) {
+ if (!cuentaDestinoObj) {
     const cuentaData = JSON.parse(localStorage.getItem(`cuenta_${numeroDestino}`))
     if (cuentaData) {
       cuentaDestinoObj = new Cuenta(
@@ -301,7 +309,7 @@ if (!cuentaDestinoObj) {
 })
 //Evento Cerrar sesion
 btnCerrarSesion.addEventListener("click", () => {
- /*  localStorage.clear(); */
+  /* localStorage.clear()  */
   document.getElementById("MenuPrincipal").style.display = "none"    
   document.getElementById("divIncioSesion").style.display = "block"  
   alert("Sesión cerrada correctamente.")
@@ -309,24 +317,3 @@ btnCerrarSesion.addEventListener("click", () => {
   claveIni.value=""
   listaMovimientos.innerHTML = ""
 })
-
-
-if (guardarAdminBtn) {
-  guardarAdminBtn.addEventListener("click", () => {
-    const usuario = document.getElementById("userAdmin").value.trim().toLowerCase()
-    const clave = document.getElementById("passAdmin").value
-
-    if (!usuario || !clave) {
-      alert("⚠️ Debes ingresar usuario y contraseña.")
-      return;
-    }
-    const adminData = {
-      usuario,
-      clave
-    };
-    localStorage.setItem("admin", JSON.stringify(adminData));
-    alert("✅ Usuario administrador guardado correctamente");
-    document.getElementById("userAdmin").value = "";
-    document.getElementById("passAdmin").value = "";
-  });
-}

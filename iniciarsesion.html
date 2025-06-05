@@ -213,7 +213,7 @@
       <div class="listaFunciones">
         <ul>
             <li id="mostrarCuentas"><a href="#" >Ver cuentas</a></li>
-            <li><a href="">Crear admin</a></li>
+            <li id="crearAdmin"><a href="#">Crear admin</a></li>
             <li><a href="">Cerrar sesion</a></li>
         </ul>
          </div>
@@ -242,10 +242,29 @@
   <div id="MensajeOlvidoClave"></div>
 </div>
 </div>
+<!-- modal nuevo admon -->
+ <div  id="modalCrearAdmin" class="modal2">
+  <div class="modal-content-NuevoAdmi">
+     <img id="imagenModal" src="./src/BSS blanco .svg" alt="Logo banco en azul" />
+    <h2>Crear Administrador</h2>
+    <br>
+    <br>
+    <label for="userAdminNuevo">Usuario:</label>
+    <br>
+    <input autocomplete="off" type="text" id="userAdminNuevo"><br><br>
+    <label for="passAdminNuevo">Contraseña:</label>
+    <br>
+    <input autocomplete="off" type="text" id="passAdminNuevo"><br><br>
+    <button type="submit" id="guardarAdminBtn">Guardar</button>
+    <button type="submit" id="cerrarModalAdmin">Cancelar</button>
+  </div>
+</div>
     </section>
+    <!-- editar cliente -->
     <div id="modalEditarCliente" class="modal">
   <div id="modal-edicion" class="modal-content">
     <span id="cerrarModalEditar" class="close">&times;</span>
+     <img id="imagenModal" src="./src/BSS blanco .svg" alt="Logo banco en azul" />
     <h2>Editar Cliente</h2>
     <br>
     <form autocomplete="off" id="formEditarCliente">
@@ -266,6 +285,9 @@
       <br>
       <input type="text" id="documentoEditar" />
       <br>
+      <label for="documentoBloqueo">Cuenta Bloqueada? (SI/NO)</label>
+      <br>
+      <input type="text" id="documentoBloqueo" />
       <br>
       <button type="submit">Guardar Cambios</button>
     </form>

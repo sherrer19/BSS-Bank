@@ -52,35 +52,32 @@
       </div>
     </div>
     <!-- Sección de características -->
-    <section class="features">
+    <section class="features" id="features">
       <div class="container">
-        <h2>¡Bienvenido al futuro de las tarjetas de crédito!</h2>
+        <h2>¡Nuestros productos!</h2>
         <div class="features-grid">
-          <div class="feature">
+          <a href="./iniciarsesion.html"><div class="feature">
             <img src="./src/cel 1.svg" alt="Cel con billetera virtual" />
-            <h4>¡Todo desde la WEB!</h4>
+            <h4>Cuenta bancaria</h4>
             <p>
-              El pago sin contacto con tu tarjeta de crédito es muy cómodo. Solo
-              acerca la tarjeta al lector y listo.
-            </p>
+              Abre tu cuenta de ahorros o corriente en BSS Banca Virtual de manera fácil y rápida, sin papeleos ni complicaciones. Realiza todo el proceso 100% en línea, desde la comodidad de tu hogar. ¡Empieza a disfrutar de tu nueva cuenta bancaria hoy mismo!
+            </p> </a>
           </div>
-          <div class="feature">
+          <div id="formularioTC" class="feature">
             <img src="./src/Cel 2 datafono.svg" alt="Pago en datafono" />
-            <h4>¡Todo desde la WEB!</h4>
+            <h4>tarjeta de credito</h4>
             <p>
-              Paga de forma rápida, segura y conveniente. Solo tienes que acercar
-              tu tarjeta.
+              Obtén tu tarjeta de crédito con BSS Banca Virtual de manera fácil y rápida, sin papeleos ni complicaciones. Realiza todo el proceso 100% en línea, desde la comodidad de tu hogar. ¡Empieza a disfrutar de todos sus beneficios hoy mismo!
             </p>
           </div>
-          <div class="feature">
+          <div id="formularioContactenos" class="feature">
             <img
-              src="./src/Cel puntos colombia.svg"
+              src="./src/contact-us-10.png"
               alt="app de puntos colombia"
             />
-            <h4>Acumula Puntos Colombia</h4>
+            <h4>Contáctanos</h4>
             <p>
-              Al usar tu tarjeta, puedes disfrutar de increíbles beneficios
-              acumulando puntos.
+            ¡Queremos ayudarte a comenzar tu vida bancaria sin complicaciones! Déjanos tus datos de contacto y uno de nuestros agentes te llamará lo antes posible para guiarte paso a paso. ¡Estamos aquí para ti!            
             </p>
           </div>
         </div>
@@ -114,11 +111,7 @@
         <img src="./src/mastercard.svg" alt="Logo Master card" />
         <img src="./src/logo puntos colombia.svg" alt="Puntos Colombia" />
       </div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Información
-        legal y disclaimer aquí...
-      </p>
-    </section>
+       </section>
     <!-- Pie de página -->
     <footer class="footer">
       <div class="container">
@@ -145,22 +138,79 @@
           </div>
           <div>
             <h5>Redes sociales</h5>
-            <ul>
-              <li>Instagram</li>
-              <li>LinkedIn</li>
-              <li>YouTube</li>
+            <ul id="RedesSociales">
+              <a href="https://www.instagram.com/" target="_blank"><li>Instagram</li></a>
+              <a href="https://www.linkedin.com/login/es" target="_blank"><li>LinkedIn</li></a>
+              <a href="https://www.youtube.com/" target="_blank"><li>YouTube</li></a>
             </ul>
           </div>
         </div>
       </div>
     </footer>
+    <!-- formulario solicitud TC -->
+  <div  id="formulariosimutTC" class="modalTC" class="oculto">
+  <div id="modal-edicion-TC" class="modal-contentTC">
+    <span id="cerrarModalTC" class="closeTC">&times;</span>
+    <img id="imagenModal" src="./src/BSS blanco .svg" alt="Logo banco en azul" />
+    <h2>¡Gracias por elegirnos!</h2>
+    <br>
+    <form autocomplete="off" action="./index.html" id="formSolicitudTC">
+      <input type="hidden" id="indexSolciitudTC" />
+      <label for="nombreEditar">Nombre:</label>
+      <br>
+      <input type="text" id="nombreEditar"  />
+      <br>
+      <label for="apellidoEditar">Apellido:</label>
+      <br>
+      <input type="text" id="apellidoEditar"  />
+      <br>
+      <label for="direccionEditar">Dirección:</label>
+      <br>
+      <input type="text" id="direccionEditar"  />
+      <br>
+      <label for="documentoEditar">Documento:</label>
+      <br>
+      <input type="text" id="documentoEditar" />
+      <br>
+      <label for="NumeroCelular">Numero de celular:</label>
+      <br>
+      <input type="text" id="NumeroCelular" />
+      <br>
+      <button id="enviarFormulario" type="submit">Enviar Solicitud</button>
+      <p> Por favor, compártenos tus datos y uno de nuestros asesores se pondrá en contacto contigo en las próximas 24 horas.</p>
+       </form>
+  </div>
+</div>
+<!-- Formulario contactenos -->
+<div  id="divformularioContactenos" class="modalContactenos" class="oculto">
+  <div id="modal-edicion-contactenos" class="modal-contentContactenos">
+    <span id="cerrarModalContactenos" class="closeContactenos">&times;</span>
+    <img id="imagenModal" src="./src/BSS blanco .svg" alt="Logo banco en azul" />
+    <h2>Contáctenos</h2>
+    <br>
+    <form autocomplete="off" action="./index.html" id="formContactenos">
+      <input type="hidden" id="indexSolciitudTC" />
+      <label for="nombreEditar">Nombre completo:</label>
+      <br>
+      <input type="text" id="nombreEditar"  />
+      <br>
+      <label for="email">Email:</label>
+      <br>
+      <input type="text" id="email"  />
+      <br>
+      <label for="Telefono">Telefono:</label>
+      <br>
+      <input type="text" id="Telefono" />
+      <br>
+      <label for="comentarios">Comentarios:</label><br>
+      <textarea id="comentarios" name="comentarios" rows="6" cols="50"></textarea>
+      <br>
+      <button id="enviarFormularioCoctactens" type="submit">Enviar Solicitud</button>
+       </form>
+  </div>
+</div>
     <div id="whatsapp-flotante"></div>
   <script src="./logoWhatsapp.js"></script>
-  </body>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <script src="./formulario.js"></script>
 </body>
 </html>

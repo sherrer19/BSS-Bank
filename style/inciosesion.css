@@ -339,11 +339,11 @@ justify-content: center;
 .modal-content-OlvidoClave {
   background-color:  #00686e;
   color: white;
-  margin: 10% auto;
+  margin: 2% auto;
   padding: 30px;
   border-radius: 12px;
   width: 80%;
-  max-width: 400px;
+  max-width: 600px;
   text-align: center;
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 20.2);
@@ -580,11 +580,11 @@ transition: 0.5s;
 #modal-edicion {
  background-color:  #00686e;
   color: white;
-  margin: 10% auto;
+  margin: 2% auto;
   padding: 80px;
   border-radius: 12px;
   width: 80%;
-  max-width: 400px;
+  max-width: 600px;
   text-align: center;
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 20.2);
@@ -617,3 +617,67 @@ position: absolute;
   font-size: 16px;
 
 }
+
+.modal2 {
+   display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content-NuevoAdmi {
+ background-color:  #00686e;
+  color: white;
+  margin: 2% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 20.2);
+}
+
+.close-nuevoAdmin {
+position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-nuevoAdmin:hover {
+    color: black;
+}
+.modal-content-NuevoAdmi input[type="text"] {
+  width: 80%;
+  padding: 5px 12px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.modal-content-NuevoAdmi button[type="submit"] {
+  width:160px;
+  padding: 12px;
+  background-color: #28a745;
+  color: #eaeff0;
+  font-size: 1rem;
+  border: none; 
+  border-radius: 8px;
+  margin: 10px;
+}
+
+#imagenModal{
+   width: 180px;
+}
+
+

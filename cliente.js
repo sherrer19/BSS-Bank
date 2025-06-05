@@ -6,7 +6,6 @@ const messageElement = document.getElementById('popupMessage')
 const closeBtn = document.querySelector('.close-btn')
 const divInicioSecion = document.getElementById("divIncioSesion")
 const divMenuPrincipal = document.getElementById("MenuPrincipal")
-
 const saldo = new Cuenta()
 export class cliente {
   constructor(nombre, apellido, direccion, identificacion,cuenta) {
@@ -53,12 +52,10 @@ export class cliente {
     cuentaNueva = new CuentaCorriente(nuevoNroCuenta, 0, [], 100000)
   }
   cuentaNueva.tipoCuenta = tipoCuentaVal
-  // Guardar la cuenta en localStorage
   const cuentas = JSON.parse(localStorage.getItem("cuentas")) || []
   cuentas.push(cuentaNueva)
   cuentaNueva.guardarEnLocalStorage()
   localStorage.setItem("cuentas", JSON.stringify(cuentas))
-  // Crear y guardar el cliente
   const cliente = {
     nombre: nombreVal,
     apellido: apellidoVal,
@@ -71,7 +68,6 @@ export class cliente {
   }
   clientes.push(cliente)
   localStorage.setItem("clientes", JSON.stringify(clientes))
-  // Mostrar mensaje
   mostrarPopUpBienvenida(`¡Bienvenido(a) ${nombreVal} ${apellidoVal}!
 
 Somos BSS BANK, tu banco digital confiable, seguro y siempre disponible.
@@ -83,7 +79,6 @@ Número de cuenta:            ${nuevoNroCuenta}
 Número de identificación:    ${identificacionVal}
 
 ¡Gracias por confiar en nosotros!`)
-  // Limpiar formulario
   nombre.value = ""
   apellido.value = ""
   direccion.value = ""
@@ -112,7 +107,6 @@ Número de identificación:    ${identificacionVal}
     passwore.value = ""
     return
   }
-  // Inicializar campos si no existen
   if (cliente.intentosFallidos === undefined) cliente.intentosFallidos = 0
    if (cliente.bloqueadoCuenta) {
     alert("🚫 Esta cuenta está bloqueada por intentos fallidos. Contacte al soporte.")
@@ -133,12 +127,10 @@ Número de identificación:    ${identificacionVal}
     passwore.value = ""
     return
   }
-  // Login exitoso
   divInicioSecion.style.display="none"
   divMenuPrincipal.style.display="block"
   cliente.intentosFallidos = 0
   localStorage.setItem("clientes", JSON.stringify(clientes))
-  // Mostrar saludo personalizado
   const contenedor = document.getElementById("contenedorMensajes")
   const h2 = document.createElement("h2")
   const nom = cliente.nombre
@@ -184,11 +176,12 @@ static mostrarFormularioRecuperacion() {
   const closeBtn = document.getElementById('closeBtn')
   const MensajeOlvidoClave = document.getElementById('MensajeOlvidoClave')
   MensajeOlvidoClave.innerHTML = `
+   <img id="imagenModal" src="./src/BSS blanco .svg" alt="Logo banco en azul" />
     <p>Por favor ingresa los datos para recuperar tu contraseña:</p>
-    <label>Nombre:<br></label><input type="text" id="nombreRecuperar" autocomplete="off"><br><br>
-    <label>Apellido:<br></label><input type="text" id="apellidoRecuperar" autocomplete="off"><br><br>
-    <label>Documento identidad:<br></label><input type="text" id="idDocumentoRecuperar" autocomplete="off"><br><br>
-    <label>Número de cuenta:<br> </label><input type="text" id="cuentaRecuperar" autocomplete="off"><br><br>
+    <label>Nombre:<br></label><input type="text" id="nombreRecuperar" autocomplete="off"><br>
+    <label>Apellido:<br></label><input type="text" id="apellidoRecuperar" autocomplete="off"><br>
+    <label>Documento identidad:<br></label><input type="text" id="idDocumentoRecuperar" autocomplete="off"><br>
+    <label>Número de cuenta:<br> </label><input type="text" id="cuentaRecuperar" autocomplete="off"><br>
     <button onclick="verificarDatosRecuperacion()">Verificar</button>
     <div id="resultadoRecuperacion" style="margin-top:10px;color:red;"></div>
   `
@@ -209,7 +202,6 @@ static mostrarFormularioRecuperacion() {
     const documentoEncontrado = datosGuardados.find(c=> c.numeroCuanta=== cuenta) 
     if (documentoEncontrado) {
        if (nombre === documentoEncontrado.nombre && apellido === documentoEncontrado.apellido && cuenta === documentoEncontrado.numeroCuanta && identificacion===documentoEncontrado.identificacion) {
-        // Mostrar campos para cambiar la contraseña
         resultado.style.color = "white"
         resultado.innerHTML = `
           <p>Datos verificados. Ingrese una nueva contraseña:</p>

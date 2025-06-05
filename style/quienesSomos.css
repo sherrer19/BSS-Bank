@@ -328,3 +328,7 @@ body {
 #whatsapp-flotante img:hover {
   transform: scale(1.3);
 }
+#RedesSociales a{
+  color: white;
+  text-decoration: none;
+}
