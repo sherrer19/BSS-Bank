@@ -1,14 +1,12 @@
 const vistaAdministrador = document.getElementById("ConsolAdmin") 
 const divIncioSesionAdmin = document.getElementById("divIncioSesionAdmin") 
 const formEditarCliente = document.getElementById("formEditarCliente") 
-
 export class administrador {
   constructor(nombre, apellido, usuario) {
     this.nombre = nombre 
     this.apellido = apellido 
     this.usuario = usuario 
   }
-
   // Inicio de sesión
   inicioSesionAdmin(userInput, claveInput) {
     const userVal = userInput.value.trim().toLowerCase() 
@@ -31,7 +29,6 @@ export class administrador {
     userInput.value = "" 
     claveInput.value = "" 
   }
-
   // Mostrar listado de clientes
   mostrarClientes() {
     const lista = document.getElementById("listaClientes") 
@@ -54,11 +51,9 @@ export class administrador {
       </thead>
       <tbody></tbody>
     ` 
-
     function capitalizar(texto) {
       return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase() 
     }
-
     const tbody = tabla.querySelector("tbody") 
     clientes.forEach((cliente, index) => {
       const fila = document.createElement("tr") 
@@ -78,9 +73,7 @@ export class administrador {
       ` 
       tbody.appendChild(fila) 
     }) 
-
     lista.appendChild(tabla) 
-
     // Asignar eventos a los botones
     document.querySelectorAll(".visualizar").forEach((boton) => {
       boton.addEventListener("click", (e) => this.visualizarCliente(e)) 
@@ -92,7 +85,6 @@ export class administrador {
       boton.addEventListener("click", (e) => this.eliminarCliente(e)) 
     }) 
   }
-
   // Visualizar movimientos de un cliente
   visualizarCliente(event) {
     const index = event.target.dataset.index 
@@ -101,13 +93,11 @@ export class administrador {
     const numeroCuenta = cliente.numeroCuanta 
     const ListaMovimientos = document.getElementById("listaClientes") 
     ListaMovimientos.innerHTML = "" 
-
     const cuenta = JSON.parse(localStorage.getItem(`cuenta_${numeroCuenta}`)) 
     if (!cuenta || !cuenta.movimientos || cuenta.movimientos.length === 0) {
       ListaMovimientos.innerHTML = `<p>No hay movimientos para esta cuenta.</p>` 
       return 
     }
-
     const tablaMovimientos = document.createElement("table") 
     tablaMovimientos.innerHTML = `
       <caption>Movimientos Cuenta: ${cliente.numeroCuanta}</caption>
@@ -130,10 +120,8 @@ export class administrador {
       ` 
       tbody.appendChild(fila) 
     }) 
-
     ListaMovimientos.appendChild(tablaMovimientos) 
   }
-
   // Editar cliente
   editarCliente(event) {
     const index = event.target.dataset.index 
@@ -145,9 +133,9 @@ export class administrador {
     document.getElementById("direccionEditar").value = cliente.direccion 
     document.getElementById("documentoEditar").value = cliente.identificacion 
     document.getElementById("documentoBloqueo").value = cliente.bloqueoCuenta === true ? "Sí" : "No" 
+    document.getElementById("claveEditar").value = cliente.contraseña
     document.getElementById("modalEditarCliente").style.display = "block" 
   }
-
   // Eliminar cliente
   eliminarCliente(event) {
     const index = event.target.dataset.index 
@@ -159,7 +147,6 @@ export class administrador {
     alert("✅ Cliente eliminado con éxito") 
     this.mostrarClientes() 
   }
-
   // Guardar admin
   guardarAdmin(userAdmin, claveAdmin) {
     const usuario = userAdmin.value.trim().toLowerCase() 
@@ -179,10 +166,7 @@ export class administrador {
     document.getElementById("listaClientes").style.display="block"
       }
 }
-
-
 const admin = new administrador() 
-
 // Formulario editar cliente
 formEditarCliente.onsubmit = (e) => {
   e.preventDefault() 
@@ -194,6 +178,7 @@ formEditarCliente.onsubmit = (e) => {
   clientes[index].identificacion = document.getElementById("documentoEditar").value.trim() 
   const bloqueoInput = document.getElementById("documentoBloqueo").value.trim().toLowerCase() 
   clientes[index].bloqueoCuenta = (bloqueoInput === "si") 
+  clientes[index].contraseña = document.getElementById("claveEditar").value.trim().toLowerCase()
   localStorage.setItem("clientes", JSON.stringify(clientes)) 
   alert("✅ Cliente editado con éxito") 
   document.getElementById("modalEditarCliente").style.display = "none" 
