@@ -1,6 +1,7 @@
 const vistaAdministrador = document.getElementById("ConsolAdmin") 
 const divIncioSesionAdmin = document.getElementById("divIncioSesionAdmin") 
 const formEditarCliente = document.getElementById("formEditarCliente") 
+const formEditarAdmin = document.getElementById("formEditarAdmin")
 export class administrador {
   constructor(nombre, apellido, usuario) {
     this.nombre = nombre 
@@ -165,6 +166,69 @@ export class administrador {
     document.getElementById("modalCrearAdmin").style.display = "none" 
     document.getElementById("listaClientes").style.display="block"
       }
+      //mostrar admins
+      mostrarUserAdmin() {
+    const listaAdmin = document.getElementById("listaUserAdmin") 
+    listaAdmin.innerHTML = "" 
+    const Admin = JSON.parse(localStorage.getItem("admins")) || [] 
+    const tabla = document.createElement("table") 
+    tabla.innerHTML = `
+      <caption>Lista de Usuarios Administradores</caption>
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Clave de acceso</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    ` 
+    function capitalizar(texto) {
+      return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase() 
+    }
+    const tbody = tabla.querySelector("tbody") 
+    Admin.forEach((admins, index) => {
+      const filaA = document.createElement("tr") 
+      filaA.innerHTML = `
+        <td>${capitalizar(admins.usuario)}</td>
+        <td>${(admins.clave)}</td>
+        <td>
+          <button class="editaAdmin" data-index="${index}" title="Editar">✏️</button>
+          <button class="eliminarAdmin" data-index="${index}" title="Eliminar">🗑️</button>
+        </td>
+      ` 
+      tbody.appendChild(filaA) 
+    }) 
+    listaAdmin.appendChild(tabla) 
+    // Asignar eventos a los botones 
+    document.querySelectorAll(".editaAdmin").forEach((boton) => {
+      boton.addEventListener("click", (e) => this.editarAdmin(e)) 
+    }) 
+    document.querySelectorAll(".eliminarAdmin").forEach((boton) => {
+      boton.addEventListener("click", (e) => this.eliminaAdmin(e)) 
+    }) 
+  }
+  //Editar Admin
+editarAdmin(event) {
+    const index = event.target.dataset.index 
+    const Admins = JSON.parse(localStorage.getItem("admins")) || [] 
+    const admin = Admins[index] 
+    document.getElementById("indexEditarAdmin").value = index 
+    document.getElementById("userEditar").value = admin.usuario 
+    document.getElementById("claveEditarAdmin").value = admin.clave
+     document.getElementById("modalEditarAdmin").style.display = "block" 
+  }
+// Eliminar Admin
+  eliminaAdmin(event) {
+    const index = event.target.dataset.index 
+    const admin = JSON.parse(localStorage.getItem("admins")) || [] 
+    const confirmar = confirm(`¿Estás seguro de que deseas eliminar al administrador${admin[index].admin} ${admin[index].clave}?`) 
+    if (!confirmar) return 
+    admin.splice(index, 1) 
+    localStorage.setItem("admins", JSON.stringify(admin)) 
+    alert("✅ Administrador eliminado con éxito") 
+    this.mostrarUserAdmin() 
+  }
 }
 const admin = new administrador() 
 // Formulario editar cliente
@@ -183,4 +247,17 @@ formEditarCliente.onsubmit = (e) => {
   alert("✅ Cliente editado con éxito") 
   document.getElementById("modalEditarCliente").style.display = "none" 
   admin.mostrarClientes() 
+
 } 
+  formEditarAdmin.onsubmit=(e)=>{
+  e.preventDefault()
+  const index = document.getElementById("indexEditarAdmin").value
+  const admin1 = JSON.parse(localStorage.getItem("admins")) || [] 
+  admin1[index].usuario = document.getElementById("userEditar").value.trim()
+  admin1[index].clave = document.getElementById("claveEditarAdmin").value.trim()
+  localStorage.setItem("admins", JSON.stringify(admin1) )
+  alert("✅ Administrador editado con éxito")
+  document.getElementById("modalEditarAdmin").style.display="none"
+  admin.mostrarUserAdmin()
+  }
+

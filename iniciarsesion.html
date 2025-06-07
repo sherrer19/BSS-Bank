@@ -204,29 +204,30 @@
         </div>
       </div>
       <div class="oculto" id="ConsolAdmin">
-      <section class="vistaAdmin" class="oculto" id="ConsolAdmin">
-      <!-- Vista admin -->
-      <div class="contenedor-funciones">
-      <div class="BSSadmin">
-        <img src="./src/BSS admin-19.svg" alt="Logo BSS azul">
-      </div>
-      <div class="listaFunciones">
-        <ul>
-            <li id="mostrarCuentas"><a href="#" >Ver cuentas</a></li>
-            <li id="crearAdmin"><a href="#">Crear admin</a></li>
-            <li><a href="">Cerrar sesion</a></li>
-        </ul>
-         </div>
-      </div>
-            <div class="contenedor-info">
-              <div id="listaClientes"></div>
-          
-           <br>
-        </div>
-      </div>
+        <section class="vistaAdmin" class="oculto" id="ConsolAdmin">
+         <!-- Vista admin -->
+          <div class="contenedor-funciones">
+             <div class="BSSadmin">
+              <img src="./src/BSS admin-19.svg" alt="Logo BSS azul">
               </div>
-        </div>
+              <div class="listaFunciones">
+                <ul>
+                  <li id="mostrarCuentas"><a href="#" >Ver cuentas</a></li>
+                  <li id="crearAdmin"><a href="#">Crear admin</a></li>
+                  <li id="mostrarAdmins"><a href="#" >Ver usuarios admin</a></li>
+                  <li><a href="">Cerrar sesion</a></li>
+                </ul>
+              </div>
+          </div>
+            <div class="contenedor-info">
+              <div id="listaClientes"></div>          
+               <br>
+               <div id="listaUserAdmin"></div>
+               </div>
       </div>
+    </div>
+  </div>
+</div>
     </section>
           <!-- modal Bienvenida -->
       <div id="popUpBienvenido" class="modal">
@@ -294,6 +295,28 @@
       <input type="text" id="claveEditar" />
       <br>
       <button type="submit">Guardar Cambios</button>
+    </form>
+  </div>
+</div>
+<!-- editar Admin -->
+<div  id="modalEditarAdmin" class="modalAdmin">
+  <div id="modal-edicion-Admin" class="modal-content-Admin" >
+    <span id="cerrarModalEditar" class="closeAdmin">&times;</span>
+     <img id="imagenModal" src="./src/BSS blanco .svg" alt="Logo banco en azul" />
+    <h2>Editar Administrador</h2>
+    <br>
+    <form autocomplete="off" id="formEditarAdmin">
+      <input type="hidden" id="indexEditarAdmin" />
+      <label for="userEditar">Usuario:</label>
+      <br>
+      <input type="text" id="userEditar"  />
+      <br>
+      <label for="claveEditarAdmin">Clave:</label>
+      <br>
+      <input type="text" id="claveEditarAdmin"  />
+      <br>
+      <br>
+       <button type="submit">Guardar Cambios</button>
     </form>
   </div>
 </div>

@@ -54,11 +54,20 @@ const mostrarCuentas = document.getElementById("mostrarCuentas")
  const userAdminNueva = document.getElementById("userAdminNuevo")//user real
  const claveAdminNueva = document.getElementById("passAdminNuevo")//clave real
  const listaClientes=document.getElementById("listaClientes")
+ const mostrarAdminsbtn = document.getElementById("mostrarAdmins")
+ const divlistaUserAdmin = document.getElementById("listaUserAdmin")
 /*  const guardarAdminprueba  = document.getElementById("guardarAdmin")//retirar
  const usuaroprueba = document.getElementById("userAdmin")//retirar
  const claveprueba = document.getElementById("passAdmin")//retirar */
 const Inicio = new cliente()
 const admin = new administrador()
+
+mostrarAdminsbtn.addEventListener("click", ()=>{
+divlistaUserAdmin.style.display="block"
+listaClientes.style.display="none"
+admin.mostrarUserAdmin()
+})
+
 crearAdminBtn.addEventListener("click",()=>{
   listaClientes.style.display = "none"
    modalCrearAdmin.style.display = "block"   
@@ -71,10 +80,16 @@ cerrarModalAdmin.addEventListener("click",()=>{
     admin.guardarAdmin(userAdminNueva,claveAdminNueva)
   })
 mostrarCuentas.addEventListener("click", ()=>{
-admin.mostrarClientes()
+  admin.mostrarClientes()
+  divlistaUserAdmin.style.display="none"
+  listaClientes.style.display="block"
+
 })
 inicioSesionAdmin.addEventListener("click",()=>{
   admin.inicioSesionAdmin(userAdmin, passAdmin)
+divlistaUserAdmin.style.display="none"
+listaClientes.style.display="none"
+
 })
 //Eventos Regresar
 IngresoAdmin.addEventListener("click", () =>{
@@ -182,7 +197,7 @@ btnRetirar.addEventListener("click", () => {
   if (Inicio.cuentaActiva) {
     const exito = Inicio.cuentaActiva.realizarRetiro(monto)
     if (exito) {
-      h2.textContent = `✅ Consignación exitosa. Nuevo saldo: ${Inicio.cuentaActiva.saldo}`
+      h2.textContent = `✅ Retiro exitoso. Nuevo saldo: ${Inicio.cuentaActiva.saldo}`
       confirmacionRetiro.style.display = "block"
       confirmacionRetiro.appendChild(h2)
       montoRetirar.value=""
@@ -309,7 +324,7 @@ if (!cuentaDestinoObj) {
 })
 //Evento Cerrar sesion
 btnCerrarSesion.addEventListener("click", () => {
-  /* localStorage.clear()  */
+  /* localStorage.clear() */ 
   document.getElementById("MenuPrincipal").style.display = "none"    
   document.getElementById("divIncioSesion").style.display = "block"  
   alert("Sesión cerrada correctamente.")
